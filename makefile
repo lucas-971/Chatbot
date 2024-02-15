@@ -1,8 +1,8 @@
 init-venv:
 	@echo "***** $@"
-	${PYTHON} -m venv ./.venv
+	python -m venv ./.venv
 
-update-venv: init-venv
+update-venv:
 	@echo "***** $@"
 	cd app
 	.venv\Scripts\activate &&\
