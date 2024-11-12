@@ -1,12 +1,14 @@
+SHELL := /bin/bash
+
 init-venv:
 	@echo "***** $@"
-	python -m venv ./.venv
+	python3.12 -m venv ./.venv
 
 update-venv:
 	@echo "***** $@"
 	cd app
-	.venv\Scripts\activate &&\
+	@source .venv/bin/activate &&\
 	pip install --upgrade pip &&\
-	pip install -r app\requirements.txt
+	pip install -r app/requirements.txt
 
-init-project: init-venv, update-venv
+init-project: init-venv, update-venv 

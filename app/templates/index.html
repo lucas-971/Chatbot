@@ -21,12 +21,12 @@
 						<div class="card-header msg_head">
 							<div class="d-flex bd-highlight">
 								<div class="img_cont">
-									<img src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png" class="rounded-circle user_img">
+									<img src="static/image/robot-svgrepo-com.png" class="rounded-circle user_img">
 									<span class="online_icon"></span>
 								</div>
 								<div class="user_info">
 									<span>ChatBot</span>
-									<p>Ask me anything!</p>
+									<p>Ask me a question!</p>
 								</div>
 							</div>
 						</div>
@@ -62,14 +62,17 @@
 					$("#messageFormeight").append(userHtml);
 
 					$.ajax({
-						data: {
-							msg: rawText,	
-						},
-						type: "POST",
 						url: "/get",
-					}).done(function(data) {
-						var botHtml = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + data + '<span class="msg_time">' + str_time + '</span></div></div>';
-						$("#messageFormeight").append($.parseHTML(botHtml));
+						type: "POST",
+						contentType: "application/json",
+						data: JSON.stringify({ message: rawText }),
+						success: function(data) {
+							var botHtml = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="static/image/robot-svgrepo-com.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + data.response + '<span class="msg_time">' + str_time + '</span></div></div>';
+							$("#messageFormeight").append($.parseHTML(botHtml));
+						},
+						error: function(xhr, status, error) {
+							console.error('Erreur:', error);
+						}
 					});
 					event.preventDefault();
 				});

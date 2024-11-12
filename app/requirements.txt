@@ -2,3 +2,5 @@ Flask
 transformers
 torch
 accelerate
+google-generativeai
+python-dotenv
