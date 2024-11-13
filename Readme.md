@@ -4,7 +4,11 @@
 
 This README would normally document whatever steps are necessary to get your application up and running.
 
-![Python : 11](https://img.shields.io/badge/Python-=3.11-green)
+![Python : 12](https://img.shields.io/badge/Python-=3.12-green)
+
+### Vidéo d'utilisation
+
+https://youtu.be/Bn6CVXCIfLs
 
 ### Lectures recommandées
 

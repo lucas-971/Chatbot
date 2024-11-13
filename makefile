@@ -12,3 +12,8 @@ update-venv:
 	pip install -r app/requirements.txt
 
 init-project: init-venv, update-venv 
+
+run-local:
+	@echo "***** $@"
+	@source .venv/bin/activate &&\
+	python3 app/app.py
