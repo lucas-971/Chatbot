@@ -36,7 +36,6 @@ def chat():
     chat = model.start_chat()
 
     session['message_count'] += 1
-    print(session['message_count'])
     if session['message_count'] >= 3 :
         session['message_count'] = 0
         bot_message = "Ce chatbot est une démo. Merci de l'avoir utilisé !"
